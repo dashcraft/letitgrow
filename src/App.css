@@ -13,14 +13,17 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.App .ui.menu:not(.vertical) .item{
+  margin-left: 13px;
 }
 
 @keyframes App-logo-spin {
