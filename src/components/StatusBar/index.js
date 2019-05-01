@@ -28,7 +28,10 @@ function StatusBar(){
                 name='Available Fertilizer'
                 color="teal"
                 active={true}
-                onClick={() => dispatch({type:"harvest"})}
+                onClick={() => {
+                    dispatch({type:"harvest"})
+                    dispatch({type:"next_season"})
+                }}
                 style={{marginLeft:0}}
             >
                Harvest Time

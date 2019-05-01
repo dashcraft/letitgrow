@@ -7,13 +7,14 @@ import { useGameContext } from '../../context/gameCtx';
 function ActionsBar(props){
     const [state, dispatch] = useGameContext();
 
+    const harvestTime = (state.currentSeason.id == 2);
     return (
         <Menu compact inverted icon='labeled' vertical className="Actions-Bar">
             <Menu.Item name='Plant' active={true} onClick={props.openPlantModal}>
                 <Icon name='plus' />
                 Add Plant
             </Menu.Item>
-            <Menu.Item name='End Season' active={true} onClick={() => dispatch({type:"next_season"})}>
+            <Menu.Item name='End Season' disabled={harvestTime} active={true} onClick={() => dispatch({type:"next_season"})}>
                 <Icon name='arrow right' />
                 End Season
             </Menu.Item>
