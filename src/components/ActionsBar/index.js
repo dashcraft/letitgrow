@@ -1,14 +1,23 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
+import { Icon, Menu } from 'semantic-ui-react'
 import { useGameContext } from '../../context/gameCtx';
 
-function ActionsBar(){
+
+function ActionsBar(props){
     const [state, dispatch] = useGameContext();
+
     return (
-        <section className="App-header">
-          <Button primary onClick={() => dispatch({type:"add_plant", payload:{id:50, name:"Cool"}})}>Add Plant </Button>
-          <Button secondary onClick={() => dispatch({type:"remove_plant", payload:50})}>Remove Plant </Button>
-        </section>
+        <Menu compact inverted icon='labeled' vertical className="Actions-Bar">
+            <Menu.Item name='Plant' active={true} onClick={props.openPlantModal}>
+                <Icon name='plus' />
+                Add Plant
+            </Menu.Item>
+            <Menu.Item name='End Season' active={true} onClick={() => dispatch({type:"next_season"})}>
+                <Icon name='arrow right' />
+                End Season
+            </Menu.Item>
+        </Menu>
     )
 }
 

@@ -1,29 +1,46 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 .App .ui.menu:not(.vertical) .item{
   margin-left: 13px;
+}
+
+.Main-Section {
+  display:flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content:'flex-start';
+}
+
+.Main-Header{
+  z-index:1;
+}
+
+.Plants-Container {
+  display: flex;
+  flex: 1;
+  height:100vh;
+}
+
+.ui.compact.vertical.menu.Actions-Bar{
+  height:100vh;
+}
+
+.Plants-Container.Empty{
+  display: flex;
+  flex: 1;
+  flex-direction:column;
+  height:100vh;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Plants-Container.Grid-Pad{
+  display:flex;
+  padding:40px;
+  overflow-y:scroll;
+  z-index:0;
+}
+
+.Plants-Container .Plant-Card{
+  z-index:0;
 }
 
 @keyframes App-logo-spin {

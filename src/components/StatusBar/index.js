@@ -5,9 +5,9 @@ import { useGameContext } from '../../context/gameCtx';
 
 function StatusBar(){
     const [state, dispatch] = useGameContext();
-    const canHarvest = (state.currentSeason.id === 3);
-    return <header>
-        <Menu inverted>
+    const canHarvest = (state.currentSeason.id === 2);
+    return <header className="Main-Header">
+        <Menu inverted attached="top">
             <Menu.Item
                 name='Current Season'
             >
@@ -28,7 +28,7 @@ function StatusBar(){
                 name='Available Fertilizer'
                 color="teal"
                 active={true}
-                onClick={() => {console.log('cool')}}
+                onClick={() => dispatch({type:"harvest"})}
                 style={{marginLeft:0}}
             >
                Harvest Time
