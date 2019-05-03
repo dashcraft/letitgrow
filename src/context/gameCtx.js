@@ -43,7 +43,20 @@ const initialState = {
   availableWater: 3400,
   availableFert: 2000,
   usingShade: false,
-  harvest: []
+  harvest: [
+    {
+      id: "81ac39e5-e925-4b6c-ab23-1b6f5ee116a8",
+      plant_name: "Dwarf Desertpeony",
+      cost: "$3.08",
+      status: 3,
+      water: 551,
+      fertilizer: 323,
+      hardiness: 4,
+      primary_image: 2,
+      max_yield: 960,
+      yield: 900
+    }
+  ]
 };
 
 const reducer = (state = initialState, action) => {
@@ -99,7 +112,7 @@ function proceedToNextSeason(state) {
 function harvestAllPlants(state) {
   let currentHarvest = state.plants.map(plant => {
     let currYield = Math.floor(plant.max_yield * (plant.health / 100));
-    return { id: plant.id, yield: currYield };
+    return { id: plant.id, plant_name: plant.plant_name, yield: currYield };
   });
   let newHarvest = currentHarvest.filter(
     item => !state.harvest.find(hv => hv.id === item.id)

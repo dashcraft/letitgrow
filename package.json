@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
-    "react-router-dom": "4.0.0",
+    "react-router-dom": "*",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.0",
     "semantic-ui-react": "^0.86.0"
@@ -19,11 +19,7 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
