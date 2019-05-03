@@ -6,12 +6,18 @@ import Plants from "./components/Plants";
 import StatusBar from "./components/StatusBar";
 import ErrorBoundary from "./ErrorBoundary";
 import AddPlantModal from "./ui/AddPlantModal";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import HarvestDashboard from "./components/HarvestDashboard";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { createBrowserHistory } from "history";
+
+const History = createBrowserHistory();
+
 
 function App() {
   const [addPlantModal, setAddPlantModal] = useState(false);
 
   return (
+    <BrowserRouter history={History}>
     <Store>
       <div className="App">
         <ErrorBoundary>
@@ -21,18 +27,31 @@ function App() {
           <ErrorBoundary>
             <ActionsBar openPlantModal={() => setAddPlantModal(true)} />
           </ErrorBoundary>
+
           <ErrorBoundary>
             <Router>
               <Route exact path="/" component={Plants} />
             </Router>
           </ErrorBoundary>
-        </segment>
-        <AddPlantModal
-          isOpen={addPlantModal}
-          onClose={() => setAddPlantModal(false)}
-        />
-      </div>
-    </Store>
+
+          <segment className="Main-Section">
+            <ErrorBoundary>
+              <ActionsBar openPlantModal={() => setAddPlantModal(true)} />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <Switch>
+                <Route exact path="/" component={Plants} />
+                <Route exact path="/harvest" component={HarvestDashboard} />
+              </Switch>
+            </ErrorBoundary>
+          </segment>
+          <AddPlantModal
+            isOpen={addPlantModal}
+            onClose={() => setAddPlantModal(false)}
+          />
+        </div>
+      </Store>
+    </BrowserRouter>
   );
 }
 
