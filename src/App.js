@@ -12,16 +12,28 @@ import { createBrowserHistory } from "history";
 
 const History = createBrowserHistory();
 
+
 function App() {
   const [addPlantModal, setAddPlantModal] = useState(false);
 
   return (
     <BrowserRouter history={History}>
-      <Store>
-        <div className="App">
+    <Store>
+      <div className="App">
+        <ErrorBoundary>
+          <StatusBar />
+        </ErrorBoundary>
+        <segment className="Main-Section">
           <ErrorBoundary>
-            <StatusBar />
+            <ActionsBar openPlantModal={() => setAddPlantModal(true)} />
           </ErrorBoundary>
+
+          <ErrorBoundary>
+            <Router>
+              <Route exact path="/" component={Plants} />
+            </Router>
+          </ErrorBoundary>
+
           <segment className="Main-Section">
             <ErrorBoundary>
               <ActionsBar openPlantModal={() => setAddPlantModal(true)} />
